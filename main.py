@@ -9,7 +9,7 @@ opcion = 0
 #Carga de usuarios desde txt
 usuarios = mis_funciones.cargar_archivo('usuarios')
 
-#Diccionario del inventario
+#Diccionario del inventario en memoria
 inventario = {
     'nombre_tienda' : "Tienda Simón Escazú",
     'sede': "Escazú",
@@ -29,22 +29,6 @@ inventario = {
 
     }
 }
-
-#PARA TEST ONLY
-nuevo_producto = {
-        'Codigo': 24568,
-        'Nombre': 'i5 10500K 4.5Ghz',
-        'Precio_Unitario': 10.0,
-        'Cantidad': 10
-    }
-nuevo_producto2 = {
-        'Codigo': 65842,
-        'Nombre': 'Razer Nari Ultimate',
-        'Precio_Unitario': 110000.0,
-        'Cantidad': 6
-    }
-inventario['departamentos']['caballeros']['productos'].append(nuevo_producto)
-inventario['departamentos']['caballeros']['productos'].append(nuevo_producto2)
 
 #Presentacion de portada
 mis_funciones.limpiar_consola()

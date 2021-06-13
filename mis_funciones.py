@@ -337,61 +337,13 @@ def menu_por_departamento(usuario_actual, departamento):
 
 
             elif opcion == 3:#Actualice el producto
-                if len(departamento['productos']) > 0:
-                    while bandera == 0:
-                        limpiar_consola()
-                        print(get_titulo('actualizar'))
-                        print(consulta_productos(departamento['productos'], departamento['nombre']))
-                        codigo_producto = int(menu_ingreso_numero('Código de producto: '))              
-                    
-                        limpiar_consola()
-                        print(get_titulo('actualizar'))
-                        producto_encontrado = encontrar_producto(codigo_producto, departamento['productos'])
-
-                        if producto_encontrado == None: 
-
-                            print(f"{mis_clases.consolaColor.ROJO}¡No hay ningún producto con ese código!{mis_clases.consolaColor.NORMAL}")
-                            respuesta = input(f"{mis_clases.consolaColor.AMARILLO}¿Desea buscar de nuevo un producto?(Si/No) {mis_clases.consolaColor.NORMAL}\n")
-
-                            if respuesta.lower().strip() == 'no':
-                                break
-
-                        else:
-                            print(mostrar_item(producto_encontrado))
-                            producto_encontrado['Nombre'] = input("Nombre: ")
-                            producto_encontrado['Precio_Unitario'] = float(menu_ingreso_numero('Precio Unitario: '))
-                            producto_encontrado['Cantidad'] = int(menu_ingreso_numero('Cantidad: '))        
-                            print(f"{mis_clases.consolaColor.MAGENTA}>< >< >< >< >< Producto actualizado >< >< >< >< ><{mis_clases.consolaColor.NORMAL}")                         
-                            break
-                else:
-                    print(f"{mis_clases.consolaColor.ROJO}¡No hay ningún producto para actualizar!{mis_clases.consolaColor.NORMAL}")                
+                limpiar_consola()
+                print(get_titulo('actualizar'))
+                               
             elif opcion == 4:#Elimine el producto
-                if len(departamento['productos']) > 0:
-                    while bandera == 0:
-                        limpiar_consola()
-                        print(get_titulo('eliminar'))
-                        print(consulta_productos(departamento['productos'], departamento['nombre']))
-                        codigo_producto = int(menu_ingreso_numero('Código de producto: '))              
-                    
-                        limpiar_consola()
-                        print(get_titulo('eliminar'))
-                        producto_encontrado = encontrar_producto(codigo_producto, departamento['productos'])
-
-                        if producto_encontrado == None: 
-
-                            print(f"{mis_clases.consolaColor.ROJO}¡No hay ningún producto con ese código!{mis_clases.consolaColor.NORMAL}")
-                            respuesta = input(f"{mis_clases.consolaColor.AMARILLO}¿Desea buscar de nuevo un producto?(Si/No) {mis_clases.consolaColor.NORMAL}\n")
-
-                            if respuesta.lower().strip() == 'no':
-                                break
-
-                        else:
-                            print(mostrar_item(producto_encontrado))
-                            departamento['productos'].remove(producto_encontrado)       
-                            print(f"{mis_clases.consolaColor.MAGENTA}>< >< >< >< >< Producto eliminado >< >< >< >< ><{mis_clases.consolaColor.NORMAL}")                         
-                            break  
-                else:
-                    print(f"{mis_clases.consolaColor.ROJO}¡No hay ningún producto para eliminar!{mis_clases.consolaColor.NORMAL}")                
+                limpiar_consola()
+                print(get_titulo('eliminar'))
+                               
             elif opcion == 6: #Salir
 
                 bandera = 1
