@@ -78,6 +78,7 @@ while bandera == 0:
     break
 
 mis_funciones.limpiar_consola()
+print(mis_funciones.get_mensaje_salida())
 print(mis_funciones.get_gracias())
 print(mis_funciones.get_portada())
 

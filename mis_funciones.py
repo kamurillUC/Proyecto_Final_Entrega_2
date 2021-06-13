@@ -3,6 +3,7 @@ import mis_clases, os, ast, hashlib
 #Salt unico para el cifrado y comparación de la contraseña
 salt = b'KamurillUC'
 
+
 #Funcion para limpiar consola segun OS
 def limpiar_consola():   
     #Unix systems 
@@ -11,6 +12,7 @@ def limpiar_consola():
     #Windows
     elif os.name == "nt":
         os.system("cls")
+
 
 #Funciones para obtener UI
 def get_logo():
@@ -33,6 +35,7 @@ def get_logo():
 
     return logo
 
+
 #Funciones para obtener UI
 def get_gracias():
     gracias = ""
@@ -54,6 +57,7 @@ def get_gracias():
 
     return gracias
 
+
 #Funciones para obtener UI
 def get_portada():      
     portada = ""
@@ -73,6 +77,25 @@ def get_portada():
 
     return portada
 
+
+#Funciones para obtener UI
+def get_mensaje_salida():
+    mensaje_salida = ""
+    mensaje_salida += mis_clases.consolaColor.AZUL   
+    mensaje_salida += f"< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >\n"        
+    mensaje_salida += f"< >< >< >< >< >< >< > {mis_clases.consolaColor.AMARILLO} _________________________________________  {mis_clases.consolaColor.AZUL}< >< >< >< >< >< >< >< >\n"
+    mensaje_salida += f"< >< >< >< >< >< >< > {mis_clases.consolaColor.AMARILLO}[|                                        | {mis_clases.consolaColor.AZUL}< >< >< >< >< >< >< >< >\n"
+    mensaje_salida += f"< >< >< >< >< >< >< > {mis_clases.consolaColor.AMARILLO}[|   {mis_clases.consolaColor.NORMAL}Saliendo del sistema de Inventarios{mis_clases.consolaColor.AMARILLO}  | {mis_clases.consolaColor.AZUL}< >< >< >< >< >< >< >< >\n"
+    mensaje_salida += f"< >< >< >< >< >< >< > {mis_clases.consolaColor.AMARILLO}[|________________________________________| {mis_clases.consolaColor.AZUL}< >< >< >< >< >< >< >< >\n"
+    mensaje_salida += "< >< >< >< >< >< >< >                                             < >< >< >< >< >< >< >< >\n"
+    mensaje_salida += "< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >< >\n"
+    mensaje_salida += mis_clases.consolaColor.MAGENTA
+    mensaje_salida += "___________________________________________________________________________________________\n" 
+    mensaje_salida += mis_clases.consolaColor.NORMAL  
+
+    return mensaje_salida
+
+
 #Funciones para obtener UI
 def get_login():   
     login = "" 
@@ -89,6 +112,7 @@ def get_login():
     login += mis_clases.consolaColor.NORMAL 
     return login
 
+
 #Funcion para hacer la carga del archivo y devolver un diccionario
 #Opcion es para futura carga de archivo de productos
 def cargar_archivo(opcion):
@@ -103,6 +127,7 @@ def cargar_archivo(opcion):
 
     return ast.literal_eval(content)
 
+
 #Funcion para el login de un usuario contra una contraseña cifrada irreversible
 def encontrar_usuario(usuarios, nombre_usuario, password):
     
@@ -115,10 +140,12 @@ def encontrar_usuario(usuarios, nombre_usuario, password):
             else:
                 return usuario
 
+
 #Funcion para cifrar una contraseña
 def generar_hash(password):
     dk = hashlib.pbkdf2_hmac('sha256', password.encode(), salt, 100000) 
     return dk.hex()
+
 
 #Funciones para obtener UI
 def get_departamento():   
@@ -141,6 +168,7 @@ def get_departamento():
 
     return depa
 
+
 #Funcion para generar la linea dependiendo del departamento
 def generar_linea(departamento):
     if departamento == 'Damas':
@@ -149,6 +177,7 @@ def generar_linea(departamento):
         return "...............Caballeros..............."
     elif departamento == 'Niños':
         return "..................Niños................."
+
 
 #Funciones para obtener Menu
 def get_menu(usuario_actual, departamento):    
@@ -177,6 +206,7 @@ def get_menu(usuario_actual, departamento):
     
     return menu
 
+
 #Función para definir las opciones del menu dependiendo del rol del usuario
 def get_cantidad_opciones(usuario_actual):
     if usuario_actual['role'] == 'admin':
@@ -185,6 +215,7 @@ def get_cantidad_opciones(usuario_actual):
         return 3
     else:
         return 0
+
 
 #Función para limitar a solo las opciones disponibles del menú
 def opcion_menu(cantidad_opciones):
@@ -227,6 +258,7 @@ def mostrar_item(item):
         respuesta += f"| {columna}: {item[columna]} "
     respuesta += "\n---------------------------------------------------------------------------------------------\n"
     return respuesta
+
 
 #Función genérica para mostrar diccionarios
 def ver_diccionario(lista, titulo):    
@@ -281,7 +313,6 @@ def encontrar_producto(codigo_producto, productos):
             return producto
         
 
-
 #Función para titulos de cada opcion del menú
 def get_titulo(opcion_menu):
     titulo = ""
@@ -303,7 +334,6 @@ def get_titulo(opcion_menu):
     titulo += "___________________________________________________________________________________________\n" 
     titulo += mis_clases.consolaColor.NORMAL 
     return titulo
-
 
 
 #Función para dar los menús dependendiendo del rol del usuario 
